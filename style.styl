@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+// Primary
+
+$blue = hsl(246, 80%, 60%)
+
+$light-red-work = hsl(15, 100%, 70%) // work
+$soft-blue = hsl(195, 74%, 62%) // play
+$light-red-study = hsl(348, 100%, 68%) // study
+$lime-green = hsl(145, 58%, 55%) // exercise
+$violet = hsl(264, 64%, 52%) // social
+$soft-orange = hsl(43, 84%, 65%) // self care
+
+// Neutral
+
+$very-dark-blue = hsl(226, 43%, 10%)
+$dark-blue = hsl(235, 46%, 20%)
+$desaturated-blue = hsl(235, 45%, 61%)
+$pale-blue = hsl(236, 100%, 87%)
+
+
+$breakpoint = 768px
+
+*
+  margin 0
+  padding 0
+  font-family: 'Rubik', sans-serif;
+  color white
+
+
+body
+  background-color $very-dark-blue
+  display flex
+  align-items center
+  flex-direction column
+
+.container
+  width 328px
+  display flex
+  align-items center
+  flex-direction column
+  margin-top 5rem
+  margin-bottom 4rem
+  @media (min-width: $breakpoint)
+    flex-direction row
+    width 1110px
+    align-items flex-start
+    margin-top 15.8rem
+
+  .user-info, .activity
+    width 100%
+
+  .user-info
+    width auto
+    flex-shrink 0
+    @media (min-width: $breakpoint)
+      width 256px
+
+  .user-info > div:first-of-type
+    background-color $blue
+    color $pale-blue
+    padding 2rem
+    display flex
+    align-items center
+    border-radius 1rem
+    position relative
+    @media (min-width: $breakpoint)
+      flex-direction column
+      align-items start
+      padding 2.1rem 1.8rem
+
+    & > img
+      width 62px
+      height 62px
+      border-radius 3rem
+      border 3px solid white
+      margin-right 1rem
+      @media (min-width: $breakpoint)
+        width 78px
+        height 78px
+
+    & div
+      @media (min-width: $breakpoint)
+        margin-top 2.5rem
+        margin-bottom 2.8rem
+        margin-left .2rem
+
+    & span
+      font-weight 400
+      font-size 15px
+      color $pale-blue
+
+    & h1
+      font-size 24px
+      margin-top 0.3rem
+      font-weight 300
+      color white
+      @media (min-width: $breakpoint)
+        font-size 40px
+
+
+  .user-info > div:last-of-type
+    background-color $dark-blue
+    display flex
+    justify-content space-around
+    align-items center
+    padding 3rem 1.5rem 1.5rem
+    margin-top -1.5rem
+    border-bottom-left-radius 1rem
+    border-bottom-right-radius 1rem
+    @media (min-width: $breakpoint)
+      flex-direction column
+      align-items start
+      padding 3.2rem 2rem 1.8rem
+
+    & > button
+      background none
+      border none
+      color $pale-blue
+      font-size 18px
+      font-weight 300
+      &:hover
+        color white
+        cursor pointer
+
+      @media (min-width: $breakpoint)
+        margin-bottom 1.3rem
+
+        &:last-of-type
+          margin-bottom 0.3rem
+
+  .activity
+    display flex
+    flex-direction column
+    justify-content space-between
+    margin-left 1.8rem
+
+    @media (min-width: $breakpoint)
+      margin-top: -1.7rem;
+      flex-direction row
+      flex-wrap wrap
+
+    & > div
+      margin-top 1.8rem
+      width 100%
+
+      @media (min-width: $breakpoint)
+        width 256px
+        margin-top 1.7rem
+
+  .outer-frame
+    border-radius 1.1rem
+    padding-top 2.5rem
+    @media (min-width: $breakpoint)
+      padding-top 2.8rem
+
+  .inner-frame
+    background-color $dark-blue
+    padding 1.7rem 1.5rem
+    border-radius 1rem
+    &:hover
+      background-color $desaturated-blue
+      cursor pointer
+
+    @media (min-width: $breakpoint)
+      padding 1.9rem 1.9rem
+
+    h2
+      font-size 18px
+      font-weight 400
+
+    button // poprawic zmiane koloru trzeba pzerobic img na svg i zmienic fill
+      background none
+      border none
+      color $desaturated-blue
+      margin-right .5rem
+      &:hover
+        color white
+        cursor pointer
+
+    & div
+      display flex
+      justify-content space-between
+      align-items center
+
+    & div:first-of-type
+      margin-bottom .5rem
+      @media (min-width: $breakpoint)
+        margin-bottom 1.5rem
+
+    .times
+      display flex
+      flex-direction row
+      @media (min-width: $breakpoint)
+        flex-direction column
+        align-items start
+
+      & > span:first-of-type
+        font-size 32px
+        font-weight 300
+        @media (min-width: $breakpoint)
+          font-size 56px
+
+      & > span:last-of-type
+        color $pale-blue
+        font-weight 300
+        @media (min-width: $breakpoint)
+          margin-top .5rem
+
+
+// dopasowac poszczegolne obrazki w bg
+.work
+  background-color $light-red-work
+  background-image url("./images/icon-work.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 90%
+    background-position-y -6%
+
+.play
+  background-color $soft-blue
+  background-image url("./images/icon-play.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 88%
+    background-position-y -3%
+
+.study
+  background-color $light-red-study
+  background-image url("./images/icon-study.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 91%
+    background-position-y -4%
+
+
+.exercise
+  background-color $lime-green
+  background-image url("./images/icon-exercise.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 90%
+    background-position-y -1%
+
+
+.social
+  background-color $violet
+  background-image url("./images/icon-social.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 92%
+    background-position-y 0%
+
+.self-care
+  background-color $soft-orange
+  background-image url("./images/icon-self-care.svg")
+  background-repeat no-repeat
+  background-position-x 95%
+  background-position-y -10%
+  @media (min-width: $breakpoint)
+    background-position-x 92%
+    background-position-y -6%
+
+.active
+  color white !important
