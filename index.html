@@ -15,7 +15,8 @@
 </head>
 <body>
 
-<div class="container" x-data="{active:'weekly'}">
+<div class="container"
+     x-data="data">
 
     <div class="user-info">
         <div>
@@ -27,9 +28,9 @@
         </div>
 
         <div>
-            <button @click="active = 'daily'" :class="active == 'daily' ? 'active' : ''">Daily</button>
-            <button @click="active = 'weekly'" :class="active == 'weekly' ? 'active' : ''">Weekly</button>
-            <button @click="active = 'monthly'" :class="active == 'monthly' ? 'active' : ''">Monthly</button>
+            <button @click="changeRange('daily')" :class="active === 'daily' ? 'active' : ''">Daily</button>
+            <button @click="changeRange('weekly')" :class="active === 'weekly' ? 'active' : ''">Weekly</button>
+            <button @click="changeRange('monthly')" :class="active === 'monthly' ? 'active' : ''">Monthly</button>
         </div>
     </div>
 
@@ -40,19 +41,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Work</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>5hrs</span> <!-- daily -->
-                        <span>Yesterday - 7hrs</span> <!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>32hrs</span> <!-- weekly -->
-                        <span>Last Week - 36hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>103hrs</span> <!-- monthly -->
-                        <span>Last Month - 128hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.work.current"></span>
+                        <span x-text="activities.work.previous"></span>
                     </div>
                 </div>
             </div>
@@ -63,19 +60,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Play</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>1hr</span> <!-- daily -->
-                        <span>Yesterday - 2hrs</span> <!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>10hrs</span> <!-- weekly -->
-                        <span>Last Week - 8hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>23hrs</span> <!-- monthly -->
-                        <span>Last Month - 29hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.play.current"></span>
+                        <span x-text="activities.play.previous"></span>
                     </div>
                 </div>
             </div>
@@ -86,19 +79,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Study</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>0hrs</span> <!-- daily -->
-                        <span>Yesterday - 1hr</span><!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>4hrs</span> <!-- weekly -->
-                        <span>Last Week - 7hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>13hrs</span> <!-- monthly -->
-                        <span>Last Month - 19hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.study.current"></span>
+                        <span x-text="activities.study.previous"></span>
                     </div>
                 </div>
             </div>
@@ -109,19 +98,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Exercise</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>1hr</span> <!-- daily -->
-                        <span>Yesterday - 1hr</span> <!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>4hrs</span> <!-- weekly -->
-                        <span>Last Week - 5hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>11hrs</span> <!-- monthly -->
-                        <span>Last Month - 18hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.exercise.current"></span>
+                        <span x-text="activities.exercise.previous"></span>
                     </div>
                 </div>
             </div>
@@ -132,19 +117,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Social</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>1hr</span> <!-- daily -->
-                        <span>Yesterday - 3hrs</span> <!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>5hrs</span> <!-- weekly -->
-                        <span>Last Week - 10hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>21hrs</span> <!-- monthly -->
-                        <span>Last Month - 23hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.social.current"></span>
+                        <span x-text="activities.social.previous"></span>
                     </div>
                 </div>
             </div>
@@ -155,19 +136,15 @@
                 <div class="inner-frame">
                     <div>
                         <h2>Self Care</h2>
-                        <button><img src="./images/icon-ellipsis.svg" alt=""></button>
+                        <button title="More" aria-label="More">
+                            <svg>
+                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="times" x-show="active == 'daily'">
-                        <span>0hrs</span> <!-- daily -->
-                        <span>Yesterday - 1hr</span> <!-- daily -->
-                    </div>
-                    <div class="times" x-show="active == 'weekly'">
-                        <span>2hrs</span> <!-- weekly -->
-                        <span>Last Week - 2hrs</span> <!-- weekly -->
-                    </div>
-                    <div class="times" x-show="active == 'monthly'">
-                        <span>7hrs</span> <!-- monthly -->
-                        <span>Last Month - 11hrs</span> <!-- monthly -->
+                    <div class="times">
+                        <span x-text="activities.self_care.current"></span>
+                        <span x-text="activities.self_care.previous"></span>
                     </div>
                 </div>
             </div>
@@ -176,6 +153,69 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('data', () => ({
+            init() {
+                this.changeRange('weekly')
+            },
+
+            active: 'weekly',
+            previousText: 'Last Week - ',
+            activities: {
+                work: {
+                    current: '',
+                    previous: '',
+                },
+                play: {
+                    current: '',
+                    previous: '',
+                },
+                study: {
+                    current: '',
+                    previous: '',
+                },
+                exercise: {
+                    current: '',
+                    previous: '',
+                },
+                social: {
+                    current: '',
+                    previous: '',
+                },
+                self_care: {
+                    current: '',
+                    previous: '',
+                },
+            },
+
+            changeRange(range) {
+                this.active = range
+
+                if (range.includes('daily')) {
+                    this.previousText = 'Yesterday - '
+                } else if (range.includes('weekly')) {
+                    this.previousText = 'Last Week - '
+                } else if (range.includes('monthly')) {
+                    this.previousText = 'Last Month - '
+                }
+
+                fetch('./data.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        let x = 0
+                        for (let i in this.activities) {
+                            this.activities[i].current = `${data[x].timeframes[range].current}hrs`
+                            this.activities[i].previous = `${this.previousText} ${data[x].timeframes[range].previous}hrs`
+                            x++
+                        }
+                    })
+                    .catch(error => console.error("Error: ", error));
+            }
+
+        }))
+    })
+</script>
 
 </body>
 </html>

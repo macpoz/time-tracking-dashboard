@@ -51,7 +51,7 @@ body
     width 100%
 
   .user-info
-    width auto
+    width 100%
     flex-shrink 0
     @media (min-width: $breakpoint)
       width 256px
@@ -102,7 +102,7 @@ body
   .user-info > div:last-of-type
     background-color $dark-blue
     display flex
-    justify-content space-around
+    justify-content space-between
     align-items center
     padding 3rem 1.5rem 1.5rem
     margin-top -1.5rem
@@ -116,15 +116,16 @@ body
     & > button
       background none
       border none
-      color $pale-blue
+      color $desaturated-blue
       font-size 18px
       font-weight 300
+      transition color 300ms
       &:hover
         color white
         cursor pointer
 
       @media (min-width: $breakpoint)
-        margin-bottom 1.3rem
+        margin-bottom 1.2rem
 
         &:last-of-type
           margin-bottom 0.3rem
@@ -133,10 +134,11 @@ body
     display flex
     flex-direction column
     justify-content space-between
-    margin-left 1.8rem
+
 
     @media (min-width: $breakpoint)
       margin-top: -1.7rem;
+      margin-left 1.8rem
       flex-direction row
       flex-wrap wrap
 
@@ -151,6 +153,7 @@ body
   .outer-frame
     border-radius 1.1rem
     padding-top 2.5rem
+    transition background-color 200ms
     @media (min-width: $breakpoint)
       padding-top 2.8rem
 
@@ -158,25 +161,37 @@ body
     background-color $dark-blue
     padding 1.7rem 1.5rem
     border-radius 1rem
+    transition background-color 200ms
+    min-height 68px
+
     &:hover
-      background-color $desaturated-blue
+      background-color lighten($dark-blue,10)
       cursor pointer
 
     @media (min-width: $breakpoint)
       padding 1.9rem 1.9rem
+      min-height 138px
 
     h2
       font-size 18px
       font-weight 400
 
-    button // poprawic zmiane koloru trzeba pzerobic img na svg i zmienic fill
+    button
       background none
       border none
-      color $desaturated-blue
-      margin-right .5rem
+      color $pale-blue
+      transition color 300ms
+
       &:hover
         color white
         cursor pointer
+
+      & > svg
+        width 21px
+        height 5px
+        color inherit
+        & > use
+          color inherit
 
     & div
       display flex
@@ -204,6 +219,7 @@ body
       & > span:last-of-type
         color $pale-blue
         font-weight 300
+        font-size 15px
         @media (min-width: $breakpoint)
           margin-top .5rem
 
