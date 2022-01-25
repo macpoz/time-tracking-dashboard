@@ -15,143 +15,145 @@
 </head>
 <body>
 
-<div class="container"
-     x-data="data">
+<main>
+    <div class="container"
+         x-data="data">
 
-    <div class="user-info">
-        <div>
-            <img src="./images/image-jeremy.png" alt="">
+        <div class="user-info">
             <div>
-                <span>Report for</span>
-                <h1>Jeremy Robson</h1>
+                <img src="./images/image-jeremy.png" alt="">
+                <div>
+                    <span>Report for</span>
+                    <h1>Jeremy Robson</h1>
+                </div>
+            </div>
+
+            <div>
+                <button @click="changeRange('daily')" :class="active === 'daily' ? 'active' : ''">Daily</button>
+                <button @click="changeRange('weekly')" :class="active === 'weekly' ? 'active' : ''">Weekly</button>
+                <button @click="changeRange('monthly')" :class="active === 'monthly' ? 'active' : ''">Monthly</button>
             </div>
         </div>
 
-        <div>
-            <button @click="changeRange('daily')" :class="active === 'daily' ? 'active' : ''">Daily</button>
-            <button @click="changeRange('weekly')" :class="active === 'weekly' ? 'active' : ''">Weekly</button>
-            <button @click="changeRange('monthly')" :class="active === 'monthly' ? 'active' : ''">Monthly</button>
+        <div class="activity">
+
+            <div class="item-container">
+                <div class="outer-frame work">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Work</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.work.current"></span>
+                            <span x-text="activities.work.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="outer-frame play">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Play</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.play.current"></span>
+                            <span x-text="activities.play.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="outer-frame study">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Study</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.study.current"></span>
+                            <span x-text="activities.study.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="outer-frame exercise">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Exercise</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.exercise.current"></span>
+                            <span x-text="activities.exercise.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="outer-frame social">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Social</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.social.current"></span>
+                            <span x-text="activities.social.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-container">
+                <div class="outer-frame self-care">
+                    <div class="inner-frame">
+                        <div>
+                            <h2>Self Care</h2>
+                            <button title="More" aria-label="More">
+                                <svg>
+                                    <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="times">
+                            <span x-text="activities.self_care.current"></span>
+                            <span x-text="activities.self_care.previous"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <div class="activity">
-
-        <div class="item-container">
-            <div class="outer-frame work">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Work</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.work.current"></span>
-                        <span x-text="activities.work.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item-container">
-            <div class="outer-frame play">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Play</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.play.current"></span>
-                        <span x-text="activities.play.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item-container">
-            <div class="outer-frame study">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Study</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.study.current"></span>
-                        <span x-text="activities.study.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item-container">
-            <div class="outer-frame exercise">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Exercise</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.exercise.current"></span>
-                        <span x-text="activities.exercise.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item-container">
-            <div class="outer-frame social">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Social</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.social.current"></span>
-                        <span x-text="activities.social.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item-container">
-            <div class="outer-frame self-care">
-                <div class="inner-frame">
-                    <div>
-                        <h2>Self Care</h2>
-                        <button title="More" aria-label="More">
-                            <svg>
-                                <use href="./images/icon-ellipsis.svg#icon-ellipsis"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="times">
-                        <span x-text="activities.self_care.current"></span>
-                        <span x-text="activities.self_care.previous"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+</main>
 
 <script>
     document.addEventListener('alpine:init', () => {
